@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "prepare": "pnpm build",
     "test": "vitest run",
     "lint": "oxlint",
     "format": "oxfmt --write .",
