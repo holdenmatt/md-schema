@@ -11,12 +11,12 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "import": "./dist/index.js"
     }
   },
   "scripts": {
     "build": "tsc",
-    "prepare": "pnpm build",
+    "prepare": "tsc",
     "test": "vitest run",
     "lint": "oxlint",
     "format": "oxfmt --write .",
