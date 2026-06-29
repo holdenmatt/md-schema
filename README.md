@@ -2,19 +2,19 @@
 
 Typed frontmatter schemas for markdown documents.
 
-`md-schema` parses YAML frontmatter with `gray-matter` and validates it with a Zod object schema. The markdown body is returned as trimmed markdown text.
+`@holdenmatt/md-schema` parses YAML frontmatter with `gray-matter` and validates it with a Zod object schema. The markdown body is returned as trimmed markdown text.
 
 ## Install
 
 ```sh
-npm add md-schema zod
+npm add @holdenmatt/md-schema zod
 ```
 
 ## Usage
 
 ```ts
 import { z } from "zod";
-import { markdownSchema } from "md-schema";
+import { markdownSchema } from "@holdenmatt/md-schema";
 
 const postSchema = markdownSchema(
   z.object({

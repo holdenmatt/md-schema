@@ -1,5 +1,5 @@
 {
-  "name": "md-schema",
+  "name": "@holdenmatt/md-schema",
   "version": "0.1.0",
   "description": "Typed frontmatter schemas for markdown documents",
   "license": "MIT",
