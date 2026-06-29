@@ -1,9 +1,12 @@
 {
   "name": "md-schema",
   "version": "0.1.0",
-  "private": true,
   "description": "Typed frontmatter schemas for markdown documents",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holdenmatt/md-schema.git"
+  },
   "files": [
     "dist"
   ],

@@ -7,7 +7,7 @@ Typed frontmatter schemas for markdown documents.
 ## Install
 
 ```sh
-pnpm add git+https://github.com/Slider-Labs/md-schema.git zod
+npm add md-schema zod
 ```
 
 ## Usage
