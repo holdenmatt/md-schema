@@ -1,4 +1,4 @@
-import matter from "gray-matter";
+import { parse as parseMarkdown } from "@holdenmatt/md-parser";
 import type * as z from "zod";
 
 /** A Zod object schema used to validate parsed YAML frontmatter. */
@@ -42,7 +42,7 @@ export type MarkdownSchema<Schema extends FrontmatterSchema> = {
 /**
  * Create a parser for markdown documents with YAML frontmatter validated by a Zod object schema.
  *
- * YAML parse failures and Zod validation failures are returned as safe `{ success: false }` results.
+ * Markdown/frontmatter parse failures and Zod validation failures are returned as safe `{ success: false }` results.
  */
 export function markdownSchema<Schema extends FrontmatterSchema>(
   frontmatterSchema: Schema,
@@ -50,16 +50,16 @@ export function markdownSchema<Schema extends FrontmatterSchema>(
   return {
     schema: frontmatterSchema,
     parse(markdown) {
-      let file: matter.GrayMatterFile<string>;
+      let document: ReturnType<typeof parseMarkdown>;
 
       try {
-        file = matter(markdown);
+        document = parseMarkdown(markdown);
       } catch (error) {
         return { success: false, error };
       }
 
       try {
-        const result = frontmatterSchema.safeParse(file.data);
+        const result = frontmatterSchema.safeParse(document.frontmatter);
 
         if (!result.success) {
           return { success: false, error: result.error };
@@ -69,7 +69,7 @@ export function markdownSchema<Schema extends FrontmatterSchema>(
           success: true,
           data: {
             frontmatter: result.data,
-            body: file.content.trim(),
+            body: document.body.trim(),
             markdown,
           },
         };

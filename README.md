@@ -2,7 +2,7 @@
 
 Typed frontmatter schemas for markdown documents.
 
-`@holdenmatt/md-schema` parses YAML frontmatter with `gray-matter` and validates it with a Zod object schema. The markdown body is returned as trimmed markdown text.
+`@holdenmatt/md-schema` parses Markdown with YAML frontmatter and validates the frontmatter with a Zod object schema. The markdown body is returned as trimmed markdown text.
 
 ## Install
 
@@ -48,7 +48,7 @@ Creates a parser for markdown documents with YAML frontmatter.
 - `frontmatterSchema`: a Zod object schema used to validate parsed frontmatter.
 - Returns `{ schema, parse }`.
 - `schema` is the original Zod schema.
-- `parse(markdown)` returns a safe result object and does not throw for YAML parse or Zod validation failures.
+- `parse(markdown)` returns a safe result object and does not throw for parser or Zod validation failures.
 
 Success:
 
@@ -73,3 +73,5 @@ Failure:
 ```
 
 Only frontmatter is validated. The body is not parsed and is returned as trimmed markdown text.
+
+Parsing is delegated to `@holdenmatt/md-parser`; `md-schema` is responsible for Zod validation and typed result shaping.

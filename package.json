@@ -1,6 +1,6 @@
 {
   "name": "@holdenmatt/md-schema",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Typed frontmatter schemas for markdown documents",
   "license": "MIT",
   "repository": {
@@ -28,7 +28,7 @@
     "check": "pnpm format:check && pnpm lint && pnpm test && pnpm build"
   },
   "dependencies": {
-    "gray-matter": "^4.0.3"
+    "@holdenmatt/md-parser": "^0.7.1"
   },
   "devDependencies": {
     "@types/node": "^26.0.1",
